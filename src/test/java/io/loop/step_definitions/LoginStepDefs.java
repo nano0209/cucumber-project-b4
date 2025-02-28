@@ -8,17 +8,25 @@ import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.ConfigurationReader;
 import io.loop.utilities.DocuportConstants;
 import io.loop.utilities.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
+    private static final Logger LOG = LogManager.getLogger();
+
 
 
     @Given("user is on Docuport login page")
     public void user_is_on_docuport_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperties("docuportBeta"));
+        LOG.info("user is on docuport login page");
+        BrowserUtils.takeScreenshot();
 
     }
     @When("user enters username for client")
@@ -41,7 +49,7 @@ public class LoginStepDefs {
     }
     @Then("user should be able to see the home page for client")
     public void user_should_be_able_to_see_the_home_page_for_client() {
-        assertTrue("Intentionally failing", false);
+       // assertTrue("Intentionally failing", false);
 
     }
 
@@ -84,6 +92,22 @@ public class LoginStepDefs {
     }
     @Then("user should be able to see the home page for supervisor")
     public void user_should_be_able_to_see_the_home_page_for_supervisor() {
+
+    }
+
+    @When("user enters credentials")
+    public void user_enters_credentials(Map<String, String > credentials) {
+//        for (Map.Entry<String, String> entry : credentials.entrySet()) {
+//            String key = entry.getKey();
+//            System.out.println("key = " + key);
+//
+//            String value = entry.getValue();
+//            System.out.println("value = " + value);
+//
+//            System.out.println("==========================");
+//        }
+
+        loginPage.login2(credentials.get("username"), credentials.get("password"));
 
     }
 
