@@ -22,7 +22,9 @@ public class Driver {
     Static - run before everything elso use in static method
      */
 
-    private static WebDriver driver;
+    //private static WebDriver driver;
+    //implement threadLocal to achieve multi thread local
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
 
     /*
@@ -36,23 +38,28 @@ public class Driver {
      * @author Naima
      */
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driverPool.get() == null) {
             String browserType = ConfigurationReader.getProperties("browser");
             switch (browserType.toLowerCase()) {
                 case "chrome":
-                    driver = new ChromeDriver();
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
                 case "firefox":
-                    driver = new FirefoxDriver();
+                    driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
                 case "safari":
-                    driver = new SafariDriver();
+                    driverPool.set(new SafariDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
             }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         }
-        return driver;
+        return driverPool.get();
     }
 
     /**
@@ -62,9 +69,10 @@ public class Driver {
 
     public static void closeDriver() {
 
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (driverPool.get() != null) {
+            driverPool.get().quit();
+           // driver = null;
+            driverPool.remove();
         }
 
 

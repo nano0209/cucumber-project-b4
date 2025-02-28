@@ -24,6 +24,7 @@ public class ProductSteps {
 
 
     }
+
     @Then("User should be able to see expected prices in the following products")
     public void user_should_be_able_to_see_expected_prices_in_the_following_products(List<Map<String, String>> productDetails) {
         for (Map<String, String> productDetail : productDetails) {
@@ -44,7 +45,38 @@ public class ProductSteps {
 
             // do assertion
             assertEquals("Expected does not match the actual", expectedPrice, actualPrice);
-            LOG.info("Validation of the price for: " + productDetail.get("Category")+ ", for Product: " + productDetail.get("Product") + " expected: " + expectedPrice +" - actual: " +actualPrice);
+            LOG.info("Validation of the price for: " + productDetail.get("Category") + ", for Product: " + productDetail.get("Product") + " expected: " + expectedPrice + " - actual: " + actualPrice);
         }
+    }
+
+
+    @Then("User should be able to see expected prices in the following products with listOfLists")
+    public void user_should_be_able_to_see_expected_prices_in_the_following_products_with_list_of_lists(List<List<String>> productDetails) {
+
+        for (List<String> productDetail : productDetails) {
+            // category
+            pages.getProductPage().clickCategory(productDetail.get(0));
+
+            // get actual price for each product
+            String actualPrices = pages.getProductPage().getProductPrice(productDetail.get(1));
+
+            // get expected price from feature file
+            String expectedPrice = productDetail.get(2);
+
+            // assertion
+            assertEquals("Expedted dies not match the acctual", expectedPrice, actualPrices);
+            LOG.info("Validation of the price for: " + productDetail.get(0) + ", for Product: " + productDetail.get(1) + " expected price: " +
+                    expectedPrice + " - actual price: " + actualPrices);
+        }
+    }
+
+    @Then("user should be able to ee the following names in their groups")
+    public void user_should_be_able_to_ee_the_following_names_in_their_groups(Map<String, List<String>> students) {
+
+        List<String> group2 = students.get("Group 2");
+        System.out.println("group = " + group2);
+
+        List<String> group1 = students.get("Group 1");
+        System.out.println("group = " + group1);
     }
 }

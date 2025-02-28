@@ -24,6 +24,9 @@ public class LoginPage {
     @FindBy(className = "v-btn__content")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement continueButton;
+
     /**
      * logins to docuport application
      *
@@ -69,8 +72,8 @@ public class LoginPage {
         usernameInput.sendKeys(username);
         passwordInput.clear();
         passwordInput.sendKeys(password);
-       // if (BrowserUtils.waitForVisibility(continueButton, 10).isDisplayed()) {
-            //continueButton.click();
+       if (BrowserUtils.waitForVisibility(continueButton, 10).isDisplayed()) {
+           continueButton.click();
         }
     }
-//}
+}
