@@ -32,3 +32,10 @@ Background: this is for navigating Docuport login page
     And user click login button
     Then user should be able to see the home page for supervisor
 
+  @dataTableLogin
+  Scenario: Login as a client map practice
+    When user enters credentials
+      | username | b1g1_client@gmail.com |
+      | password | Group1                |
+    Then user should bbe able to see the home for client
+
