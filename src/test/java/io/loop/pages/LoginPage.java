@@ -24,6 +24,9 @@ public class LoginPage {
     @FindBy(className = "v-btn__content")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//span[.='Home']")
+    public WebElement homePage;
+
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement continueButton;
 

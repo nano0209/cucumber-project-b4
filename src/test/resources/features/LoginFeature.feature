@@ -37,5 +37,5 @@ Background: this is for navigating Docuport login page
     When user enters credentials
       | username | b1g1_client@gmail.com |
       | password | Group1                |
-    Then user should bbe able to see the home for client
+    Then user should be able to see the home page for client
 

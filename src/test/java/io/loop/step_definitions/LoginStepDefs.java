@@ -56,42 +56,52 @@ public class LoginStepDefs {
 
     @When("user enters username for employee")
     public void user_enters_username_for_employee() {
+        loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_EMPLOYEE);
 
     }
     @When("user enters password for employee")
     public void user_enters_password_for_employee() {
+        loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_All);
 
     }
     @Then("user should be able to see the home page for employee")
     public void user_should_be_able_to_see_the_home_page_for_employee() {
+        loginPage.homePage.isDisplayed();
 
     }
 
 
     @When("user enters username for advisor")
     public void user_enters_username_for_advisor() {
+        loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_ADVISOR);
+
 
     }
     @When("user enters password for advisor")
     public void user_enters_password_for_advisor() {
+        loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_All);
 
     }
     @Then("user should be able to see the home page for advisor")
     public void user_should_be_able_to_see_the_home_page_for_advisor() {
+        loginPage.homePage.isDisplayed();
 
     }
 
 
     @When("user enters username for supervisor")
     public void user_enters_username_for_supervisor() {
+        loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_SUPERVISOR);
 
     }
     @When("user enters password for supervisor")
     public void user_enters_password_for_supervisor() {
+        loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_All);
 
     }
     @Then("user should be able to see the home page for supervisor")
     public void user_should_be_able_to_see_the_home_page_for_supervisor() {
+        loginPage.homePage.isDisplayed();
 
     }
 
