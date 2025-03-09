@@ -18,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
+    HomePage homePage = new HomePage();
     private static final Logger LOG = LogManager.getLogger();
 
 
@@ -49,7 +50,9 @@ public class LoginStepDefs {
     }
     @Then("user should be able to see the home page for client")
     public void user_should_be_able_to_see_the_home_page_for_client() {
-       // assertTrue("Intentionally failing", false);
+        assertTrue(BrowserUtils.waitForVisibility(homePage.receivedDocs, 10).isDisplayed());
+        LOG.info("Home page is successfully loaded");
+
 
     }
 
