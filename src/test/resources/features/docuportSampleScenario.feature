@@ -10,3 +10,10 @@ Scenario: Practice click buttons on different pages as a client
   And user clicks "Received Doc" button on "Left Navigate" page
   And user clicks "Search" button on "Received Doc" page
   And user inserts "tax document" to "Document name" field on "Received Doc" page
+  And user clicks "My Uploads" button on "Left Navigate" page
+  And user clicks "Upload Documents" button on "My Uploads" page
+  And user clicks "Upload file" button on "My uploads" page
+  And user uploads document
+
+
+
