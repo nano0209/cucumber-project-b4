@@ -1,8 +1,1 @@
-06.03.2025 22:06:58 INFO  Hook:43 - _______________START AUTOMATION________________
-06.03.2025 22:06:58 INFO  SampleDocuportStepDefs:21 - b1g1_client@gmail.com- was successfully send to - username
-06.03.2025 22:06:58 INFO  Hook:43 - _______________START AUTOMATION________________
-06.03.2025 22:06:58 INFO  SampleDocuportStepDefs:21 - Group1- was successfully send to - password
-06.03.2025 22:06:58 INFO  Hook:43 - _______________START AUTOMATION________________
-06.03.2025 22:06:58 INFO  SampleDocuportStepDefs:38 - login - was successfully clicked
-06.03.2025 22:06:58 INFO  Hook:43 - _______________START AUTOMATION________________
-06.03.2025 22:06:59 INFO  Hook:43 - _______________START AUTOMATION________________
+09.03.2025 14:33:12 ERROR ExcelUtils:48 - happened while getting cell data: Cannot invoke "org.apache.poi.ss.usermodel.Row.getCell(int)" because the return value of "org.apache.poi.ss.usermodel.Sheet.getRow(int)" is null

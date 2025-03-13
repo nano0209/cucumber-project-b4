@@ -3,6 +3,7 @@ package io.loop.step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.loop.pages.HomePage;
 import io.loop.pages.LoginPage;
 import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.ConfigurationReader;

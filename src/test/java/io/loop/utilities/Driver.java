@@ -55,7 +55,7 @@ public class Driver {
                 case "safari":
                     driverPool.set(new SafariDriver());
                     driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperties("timeouts"))));
                     break;
 
                     case "headless":
